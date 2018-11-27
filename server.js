@@ -22,7 +22,7 @@ const server = new ApolloServer({ typeDefs, resolvers });
 
 //Mount a jwt or other authentication middleware that is run before the GraphQL execution
 // app.use(path, jwtCheck);
-
+// https://medium.com/codingthesmartway-com-blog/apollo-server-introduction-d24b593d4eda
 
 server.applyMiddleware({ app, path: path });
 
