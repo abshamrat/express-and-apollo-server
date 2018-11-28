@@ -1,24 +1,14 @@
 const express = require('express');
+import schema from './schema';
 const { ApolloServer, gql, registerServer } = require('apollo-server-express');
 
 const PORT = 4000;
 
 const app = express();
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => 'Hello world!'
-  },
-};
 const path = '/graphql';
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ schema });
 
 //Mount a jwt or other authentication middleware that is run before the GraphQL execution
 // app.use(path, jwtCheck);

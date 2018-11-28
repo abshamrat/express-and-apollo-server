@@ -1,3 +1,6 @@
+import { makeExecutableSchema } from 'graphql-tools';
+import resolvers from './resolvers';
+
 const typeDefs = [`
     type Course {
         id: Int
@@ -12,3 +15,11 @@ const typeDefs = [`
         course(id: Int!): Course
     }
 `];
+
+const schema = makeExecutableSchema({
+    typeDefs,
+    resolvers
+});
+
+
+export default schema;
