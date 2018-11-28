@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 require('./server/routes')(app);
 
 const path = '/graphql';
-const server = new ApolloServer({ schema });
+const server = new ApolloServer({ schema, graphiql: true });
 
 //Mount a jwt or other authentication middleware that is run before the GraphQL execution
 // app.use(path, jwtCheck);
