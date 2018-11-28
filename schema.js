@@ -1,28 +1,4 @@
-// import { makeExecutableSchema } from 'graphql-tools';
-// import resolvers from './resolvers';
-
-// const typeDefs = [`
-//     type Course {
-//         id: Int
-//         title: String
-//         author: String
-//         description: String
-//         topic: String
-//         url: String
-//     }
-//     type Query {
-//         allCourses: [Course]
-//         course(id: Int!): Course
-//     }
-// `];
-
-// const schema = makeExecutableSchema({
-//     typeDefs,
-//     resolvers
-// });
-
-
-// export default schema;
+// https://medium.com/@sam.chai0501/graphql-converting-my-node-express-sequelize-postgresql-back-end-24232e535fb9
 const { resolver } = require('graphql-sequelize');
 const { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLNonNull, GraphQLList } = require('graphql')
 const { Todo, TodoItem } = require('./server/models');
@@ -67,6 +43,10 @@ const schema = new GraphQLSchema({
       todo: {
         type: new GraphQLList(todoType),
         resolve: resolver(Todo)
+      },
+      todoItem: {
+        type: new GraphQLList(todoitemType),
+        resolve: resolver(TodoItem)
       }
     }
   })
