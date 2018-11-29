@@ -10,11 +10,16 @@ const todoType = new GraphQLObjectType({
   fields: {
     id: {
       type: new GraphQLNonNull(GraphQLInt),
-      description: 'The id of the order.',
+      description: 'The id of the todolist.',
     },
     title: {
       type: new GraphQLNonNull(GraphQLString),
-      description: 'status of the order'
+      description: 'todo title'
+    },
+    todoItem: {
+      type: new GraphQLList(todoitemType),
+      description: 'todo items'
+
     }
   }
 })
