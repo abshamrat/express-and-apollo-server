@@ -3,6 +3,25 @@ const { resolver } = require('graphql-sequelize');
 const { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLNonNull, GraphQLList } = require('graphql')
 const { Todo, TodoItem } = require('./server/models');
 
+
+
+//Define User type
+const todoitemType = new GraphQLObjectType({
+  name: 'TodoItem',
+  description: 'A TodoItem',
+  fields: {
+    id: {
+      type: new GraphQLNonNull(GraphQLInt),
+      description: 'The id of the user.',
+    },
+    content: {
+      type: GraphQLString,
+      description: 'The content of the item.',
+    }
+  }
+})
+
+
 //Define Order type
 const todoType = new GraphQLObjectType({
   name: 'Todo',
@@ -24,21 +43,7 @@ const todoType = new GraphQLObjectType({
   }
 })
 
-//Define User type
-const todoitemType = new GraphQLObjectType({
-  name: 'TodoItem',
-  description: 'A TodoItem',
-  fields: {
-    id: {
-      type: new GraphQLNonNull(GraphQLInt),
-      description: 'The id of the user.',
-    },
-    content: {
-      type: GraphQLString,
-      description: 'The content of the item.',
-    }
-  }
-})
+
 
 //schema
 const schema = new GraphQLSchema({
