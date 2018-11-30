@@ -43,7 +43,7 @@ const todoType = new GraphQLObjectType({
     },
     todoItem: {
       type: new GraphQLList(todoitemType),
-      // resolve: resolver(Todo.TodoItem),
+      resolve: resolver(Todo.assoc),
       sqlBatch: {
         // which column to match up to the users
         thisKey: 'todoId',

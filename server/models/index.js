@@ -15,7 +15,7 @@ if (config.use_env_variable) {
   );
 }
 
-fs
+  fs
   .readdirSync(__dirname)
   .filter(file =>
     (file.indexOf('.') !== 0) &&
@@ -28,7 +28,7 @@ fs
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
-    db[modelName].associate(db);
+    db[modelName].assoc = db[modelName].associate(db);
   }
 });
 
