@@ -2,8 +2,10 @@
 // Schema help: https://join-monster.readthedocs.io/en/latest/batch-one-many/
 const { resolver } = require('graphql-sequelize');
 const { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean, GraphQLNonNull, GraphQLList } = require('graphql')
-const { Todo, TodoItem } = require('./server/models');
+const Todo = require('./server/models').Todo;
+const TodoItem = require('./server/models/todoitem').TodoItem;
 
+console.log(Todo.associate);
 
 
 //Define User type
@@ -41,6 +43,7 @@ const todoType = new GraphQLObjectType({
     },
     todoItem: {
       type: new GraphQLList(todoitemType),
+      // resolve: resolver(Todo.TodoItem),
       sqlBatch: {
         // which column to match up to the users
         thisKey: 'todoId',
@@ -50,7 +53,7 @@ const todoType = new GraphQLObjectType({
 
     }
   }
-})
+});
 
 
 
@@ -60,6 +63,10 @@ const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'root',
     fields: {
+      allTodo: {
+        type: new GraphQLList(todoType),
+        resolve: resolver(Todo)
+      },
       todo: {
         type: new GraphQLList(todoType),
          // args will automatically be mapped to `where`
@@ -99,14 +106,38 @@ const schema = new GraphQLSchema({
               else if (b.content === args.query) {
                 return -1;
               }
-
               return 0;
             });
           }
         })
       }
     }
-  })
+  }),
+  mutation: new GraphQLObjectType({
+    name: 'root_mutations',
+    description: 'mutations',
+    fields: () => ({
+      createTodo: {
+        type: todoType,
+        args: {
+          title:{
+            type: new GraphQLNonNull( GraphQLString)
+          }
+        },
+        resolve: (rootValue, input) => {
+          if (input.title === "") {
+           throw new Error('Title is required');
+          }
+          return Todo.create({
+            title: input.title
+          }).then(function(m){
+            return m
+          })
+        }
+      },
+    })
+  }),
+
 })
 
 module.exports = schema

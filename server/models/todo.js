@@ -1,3 +1,5 @@
+// const TodoItem = require('./todoitem');
+
 module.exports = (sequelize, DataTypes) => {
   const Todo = sequelize.define('Todo', {
     title: {
@@ -12,6 +14,18 @@ module.exports = (sequelize, DataTypes) => {
       as: 'todoItems',
     });
   };
+  // Todo.TodoItem = Todo.hasMany(TodoItem, {as: 'TodoItems',  foreignKey: 'todoId'});
 
   return Todo;
 };
+
+// const Todo = sequelize.define('Todo', {
+//   title: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//   },
+// });
+
+// Todo.TodoItem = Todo.hasMany(TodoItem, {as: 'TodoItems'});
+
+// module.exports = Todo;
