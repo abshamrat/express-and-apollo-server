@@ -6,5 +6,9 @@ Express framework for implementing the Node.js GraphQL server
 - clone the repository `git clone https://github.com/shamrat17/express-and-apollo-server.git`
 - go to the project folder and run command
 ```bash
-    $ npm install
+  $ npm install
+```
+### Run Dev server
+```bash
+  $ npm run dev
 ```
