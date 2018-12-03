@@ -15,7 +15,7 @@ if (config.use_env_variable) {
   );
 }
 
-fs
+ fs
   .readdirSync(__dirname)
   .filter(file =>
     (file.indexOf('.') !== 0) &&
