@@ -8,3 +8,10 @@ Express framework for implementing the Node.js GraphQL server
 ```bash
     $ npm install
 ```
+
+## About Apollo Server
+### What is Apollo Server?
+Apollo Server is the best way to quickly build a production-ready, self-documenting API for GraphQL clients, using data from any source.
+It’s open-source and works great as a stand-alone server, an addon to an existing Node.js HTTP server, or in “serverless” environments.
+
+<img alt="Docker container" src="./apollo.svg" />
