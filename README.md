@@ -12,6 +12,37 @@ Express framework for implementing the Node.js GraphQL server
 ```bash
   $ npm run dev
 ```
+It will start listening `localhost:4000`. Now if you want to go `graphql` then simply go to `localhost:4000/graphql` and type
+
+```graphql
+  {
+    allCourses{
+      id,
+      title
+    }
+  }
+```
+Now you will see a result like 
+```graphql
+  {
+  "data": {
+    "allCourses": [
+      {
+        "id": 1,
+        "title": "The Complete Node.js Developer Course"
+      },
+      {
+        "id": 2,
+        "title": "Node.js, Express & MongoDB Dev to Deployment"
+      },
+      {
+        "id": 3,
+        "title": "JavaScript: Understanding The Weird Parts"
+      }
+    ]
+  }
+}
+```
 
 ## About Apollo Server
 ### What is Apollo Server?
