@@ -51,3 +51,9 @@ It’s open-source and works great as a stand-alone server, an addon to an exist
 
 <img alt="Docker container" src="./apollo.svg" />
 
+Apollo Server implements a spec-compliant GraphQL server which can be queried from any GraphQL client, including Apollo Client, enabling:
+
+- *An easy start*, so front-end and back-end developers can start fetching data quickly.
+- *Incremental adoption*, allowing advanced features to be added when they’re needed.
+- *Universal compatibility* with any data source, any build tool and any GraphQL client.
+- *Production readiness*, and what you build in development works great in production.
