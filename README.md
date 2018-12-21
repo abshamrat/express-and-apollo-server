@@ -1,6 +1,20 @@
 # express-and-apollo-server
 Express framework for implementing the Node.js GraphQL server 
 
+## About Apollo Server
+### What is Apollo Server?
+Apollo Server is the best way to quickly build a production-ready, self-documenting API for GraphQL clients, using data from any source.
+It’s open-source and works great as a stand-alone server, an addon to an existing Node.js HTTP server, or in “serverless” environments.
+
+<img alt="Docker container" src="./apollo.svg" />
+
+Apollo Server implements a spec-compliant GraphQL server which can be queried from any GraphQL client, including Apollo Client, enabling:
+
+- *An easy start*, so front-end and back-end developers can start fetching data quickly.
+- *Incremental adoption*, allowing advanced features to be added when they’re needed.
+- *Universal compatibility* with any data source, any build tool and any GraphQL client.
+- *Production readiness*, and what you build in development works great in production.
+
 ## Getting Started
 - Install the Node.js version >= 8
 - clone the repository `git clone https://github.com/shamrat17/express-and-apollo-server.git`
@@ -43,17 +57,3 @@ Now you will see a result like
   }
 }
 ```
-
-## About Apollo Server
-### What is Apollo Server?
-Apollo Server is the best way to quickly build a production-ready, self-documenting API for GraphQL clients, using data from any source.
-It’s open-source and works great as a stand-alone server, an addon to an existing Node.js HTTP server, or in “serverless” environments.
-
-<img alt="Docker container" src="./apollo.svg" />
-
-Apollo Server implements a spec-compliant GraphQL server which can be queried from any GraphQL client, including Apollo Client, enabling:
-
-- *An easy start*, so front-end and back-end developers can start fetching data quickly.
-- *Incremental adoption*, allowing advanced features to be added when they’re needed.
-- *Universal compatibility* with any data source, any build tool and any GraphQL client.
-- *Production readiness*, and what you build in development works great in production.
